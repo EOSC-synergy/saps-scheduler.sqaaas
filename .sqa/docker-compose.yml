@@ -1,0 +1,30 @@
+services:
+  scheduler-build:
+    build:
+      args: {}
+      context: .
+      dockerfile: ./docker/Dockerfile
+    command: sleep 6000000
+    image: eoscsynergyapps/saps-scheduler
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+  scheduler-docs:
+    command: sleep 6000000
+    image: sphinxdoc/sphinx
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+  scheduler-testing:
+    command: sleep 6000000
+    image: maven:3.6.3-ibmjava-alpine
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+version: '3.7'
