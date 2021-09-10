@@ -16,28 +16,10 @@ config:
 environment:
   JPL_DOCKERPUSH: scheduler-build
 sqa_criteria:
-  qc_doc:
-    repos:
-      github.com/EOSC-synergy/saps-scheduler:
-        commands:
-        - /usr/bin/env sh .sqa/script.scummy-saffron-okapi.sh
-        container: scheduler-docs
-  qc_security:
-    repos:
-      github.com/EOSC-synergy/saps-scheduler:
-        commands:
-        - /usr/bin/env sh .sqa/script.sleepy-vermilion-dormouse.sh
-        container: scheduler-testing
   qc_style:
     repos:
       github.com/EOSC-synergy/saps-scheduler:
         commands:
-        - /usr/bin/env sh .sqa/script.lanky-amaranth-angora.sh
-        container: scheduler-testing
-  qc_coverage:
-    repos:
-      github.com/EOSC-synergy/saps-scheduler:
-        commands:
-        - /usr/bin/env sh .sqa/script.tasty-asparagus-monster.sh
+        - /usr/bin/env sh .sqa/script.wimpy-copper-otter.sh
         container: scheduler-testing
 timeout: 600
