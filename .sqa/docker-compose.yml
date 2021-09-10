@@ -2,8 +2,8 @@ services:
   scheduler-build:
     build:
       args: {}
-      context: .
-      dockerfile: ./docker/Dockerfile
+      context: docker
+      dockerfile: Dockerfile
     command: sleep 6000000
     image: eoscsynergyapps/saps-scheduler
     volumes:
@@ -13,6 +13,7 @@ services:
     working_dir: /sqaaas-build
   scheduler-docs:
     command: sleep 6000000
+    hostname: scheduler-docs
     image: sphinxdoc/sphinx
     volumes:
     - source: ./
@@ -21,6 +22,7 @@ services:
     working_dir: /sqaaas-build
   scheduler-testing:
     command: sleep 6000000
+    hostname: scheduler-testing
     image: maven:3.6.3-ibmjava-alpine
     volumes:
     - source: ./
